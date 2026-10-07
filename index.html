@@ -1,0 +1,368 @@
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PARTIU — Ingressos</title>
+<style>
+:root{--bg:#030712;--panel:#07111f;--panel2:#0a1628;--line:#17335d;--line2:#27538f;--text:#f7f9ff;--muted:#93a5c2;--blue:#1487ff;--cyan:#27b5ff;--violet:#7c2cff;--pink:#f20cff;--green:#20df88;--shadow:0 18px 55px rgba(0,0,0,.42)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 10% 0%,#0a1e3a 0,#030712 34%),radial-gradient(circle at 90% 10%,#18063a 0,#030712 30%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;min-height:100vh}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 0 46%,rgba(25,126,255,.04) 47%,transparent 48% 68%,rgba(244,0,255,.035) 69%,transparent 70%);z-index:-1}
+button,input,textarea,select{font:inherit}.btn,.cta,input,textarea,select{border-radius:10px}.btn{background:linear-gradient(180deg,#0d1b31,#091426);color:#fff;border:1px solid #294a79;padding:10px 15px;cursor:pointer;transition:.18s}.btn:hover{border-color:#4d83c7;transform:translateY(-1px)}.cta{background:linear-gradient(100deg,#087fff,#6328ff);border:0;color:#fff;padding:12px 18px;font-weight:800;cursor:pointer;box-shadow:0 8px 28px rgba(31,102,255,.25);transition:.18s}.cta:hover{filter:brightness(1.12);transform:translateY(-1px)}
+header{height:82px;display:flex;align-items:center;gap:24px;padding:0 4%;border-bottom:1px solid #18355f;background:rgba(3,7,18,.88);backdrop-filter:blur(16px);position:sticky;top:0;z-index:30;box-shadow:0 8px 30px rgba(0,0,0,.25)}
+.logo-wrap{display:flex;align-items:center;gap:12px;min-width:190px}.logo{font-size:31px;letter-spacing:-1.5px;font-weight:950;font-style:italic}.logo:before{content:"♛";font-size:18px;position:absolute;margin:-20px 0 0 82px;color:#168bff}.logo b{color:#fff}.brand-sub{font-size:10px;color:#8ea3c3;margin-top:2px;letter-spacing:.6px}.nav{display:flex;align-items:center;gap:4px}.nav button{background:none;border:0;color:#d9e4f7;padding:12px 14px;cursor:pointer;border-radius:9px}.nav button:hover{background:#0b1b31;color:#fff}.nav-icon{color:#158aff;font-size:17px;margin-right:5px}.header-note{font-size:13px;font-style:italic;color:#d8e0f0;text-align:right;line-height:1.05}.header-note b{display:block;font-size:18px;color:#fff}
+.wrap{max-width:1280px;margin:0 auto;padding:26px 20px}.hero{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:22px;min-height:330px;padding:42px;border:1px solid #1c477e;border-radius:22px;overflow:hidden;background:linear-gradient(110deg,#071529 0%,#081a31 52%,#100927 100%);box-shadow:var(--shadow)}.hero:after{content:"";position:absolute;right:-90px;top:-80px;width:430px;height:430px;border-radius:50%;background:radial-gradient(circle,#157dff66 0,transparent 65%);pointer-events:none}.hero h1{font-size:48px;line-height:.98;margin:12px 0 12px;letter-spacing:-1.4px}.hero p{max-width:560px}.hero-art{position:relative;min-height:245px;border-radius:18px;overflow:hidden;background:linear-gradient(145deg,#07172c,#081b38 50%,#2a0b5b);border:1px solid #27558f;display:flex;align-items:center;justify-content:center}.hero-art:before,.hero-art:after{content:"";position:absolute;width:80px;height:250px;background:linear-gradient(180deg,#168cff00,#168cff99,#168cff00);transform:rotate(30deg);filter:blur(7px)}.hero-art:before{left:20%;top:-20px}.hero-art:after{right:15%;bottom:-35px;background:linear-gradient(180deg,#ff00ea00,#ff00ea88,#ff00ea00)}.hero-logo{font-size:66px;font-weight:950;font-style:italic;text-shadow:0 0 35px #168bff99;z-index:1}
+.section-title{display:flex;align-items:end;gap:12px;margin:30px 0 14px}.section-title h2{margin:0;font-size:21px}.section-title .muted{font-size:12px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card,.panel{background:linear-gradient(180deg,rgba(9,20,37,.98),rgba(5,13,25,.98));border:1px solid #17385f;border-radius:16px;padding:16px;box-shadow:0 10px 35px rgba(0,0,0,.18)}.card{overflow:hidden}.card:hover{border-color:#2e6cb1;box-shadow:0 14px 40px rgba(10,108,255,.12)}.card img,.event-placeholder{width:100%;height:170px;object-fit:cover;border-radius:11px;background:linear-gradient(135deg,#0c2b55,#541c85,#0a1730)}.event-placeholder{display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;font-style:italic;color:#dfeaff}.card h3{margin:10px 0 6px}.muted{color:var(--muted)}.price{font-size:20px;font-weight:900}.tag{display:inline-flex;align-items:center;padding:5px 9px;border-radius:999px;background:#062c21;border:1px solid #145f45;color:#48f2a2;font-size:11px;font-weight:800}.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.sp{flex:1}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.three{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.four{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+label{display:block;color:#a9b8cf;font-size:13px;margin:10px 0 5px}input,textarea,select{width:100%;padding:11px 12px;background:#040b16;border:1px solid #284a78;color:#fff;outline:none}input:focus,textarea:focus,select:focus{border-color:#168bff;box-shadow:0 0 0 3px #168bff18}textarea{min-height:92px}.stat{font-size:28px;font-weight:900}.stat small{display:block;font-size:11px;color:#8ea2bf;font-weight:600;margin-top:5px}.stat-card{position:relative;overflow:hidden}.stat-card:after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;right:-30px;top:-30px;background:#168bff18}.stat-icon{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;background:#0d2a52;color:#4ba4ff;font-size:20px;margin-bottom:10px}
+.admin{display:grid;grid-template-columns:220px 1fr;gap:18px}.side{padding:12px;height:max-content;position:sticky;top:100px}.side button{display:block;width:100%;margin:6px 0;text-align:left}.side button:first-child{border-color:#1669bd;background:#0c2a50}.table{overflow:auto}table{width:100%;border-collapse:collapse;min-width:680px}th,td{padding:12px;border-bottom:1px solid #193250;text-align:left;font-size:13px}th{color:#9eb2cf;font-weight:700}td{color:#e5ebf5}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.78);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:18px;z-index:60}.box{width:100%;max-width:720px;max-height:92vh;overflow:auto;background:linear-gradient(180deg,#0a1729,#050c17);border:1px solid #315a92;border-radius:18px;padding:22px;box-shadow:0 25px 90px rgba(0,0,0,.7)}.qr{max-width:290px;background:#fff;padding:10px;border-radius:12px}.copy{word-break:break-all;padding:11px;background:#030812;border:1px dashed #355784;font-size:12px}.hidden{display:none}.ok{color:#49f39a}.danger{color:#ff7089}
+.login-screen{min-height:calc(100vh - 82px);display:flex;align-items:center;justify-content:center;padding:30px;background:radial-gradient(circle at 50% 50%,#09214b44,transparent 55%)}.login-box{width:100%;max-width:480px;background:linear-gradient(180deg,#09182d,#050d1a);border:1px solid #315b95;border-radius:22px;padding:30px;box-shadow:0 25px 90px #0009}.login-brand{text-align:center;margin-bottom:20px}.login-brand .logo{font-size:42px}.login-brand p{margin:2px 0;color:#8da2c0;font-size:11px;letter-spacing:1px}.quick-access{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}.quick-access button{padding:13px;border-radius:11px;background:#08162a;color:#fff;border:1px solid #284a78;cursor:pointer}.quick-access button:hover{border-color:#168bff}.quick-access span{display:block;font-size:11px;color:#8fa2be;margin-top:3px}
+.mobile-bar{display:none}.empty{padding:28px;text-align:center;border:1px dashed #27466e;border-radius:14px;color:#8ea2bf}.dashboard-title{font-size:30px;margin:0}.subline{font-size:12px;color:#8fa2bd}.event-meta{font-size:12px;line-height:1.7;color:#a9bad2}.action-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+@media(max-width:980px){.header-note{display:none}.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.four{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:800px){header{height:68px;padding:0 15px}.logo-wrap{min-width:0}.logo{font-size:25px}.brand-sub,.nav{display:none}.mobile-bar{display:flex}.wrap{padding:18px 12px}.hero{padding:24px;min-height:0}.hero h1{font-size:35px}.hero-art{min-height:170px}.hero-logo{font-size:45px}.grid,.admin,.two,.three,.four{grid-template-columns:1fr}.side{position:static}.login-screen{min-height:calc(100vh - 68px);padding:16px}.login-box{padding:22px}.quick-access{grid-template-columns:1fr}.card img,.event-placeholder{height:150px}.table{margin:0 -4px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo-wrap"><div class="logo">PARTI<b>U</b></div><div class="brand-sub">Criado pela GT Sistema</div></div>
+  <nav class="nav">
+    <button onclick="home()"><span class="nav-icon">⌂</span>Eventos</button>
+    <button onclick="alert('Compra segura: o pagamento é processado pelo Mercado Pago quando configurado.')">♢ Compra Segura</button>
+    <button onclick="alert('O QR Code do ingresso aparece após a confirmação do pagamento.')">▦ QR Code</button>
+    <button onclick="alert('O PARTIU funciona no celular e no computador.')">▣ Mobile</button>
+  </nav>
+  <div class="sp"></div>
+  <div class="header-note"><b>PARTIU</b>Mais que ingressos, experiência!</div>
+  <button class="btn" id="headerLogin">Entrar</button>
+</header>
+<main id="app"></main>
+
+<div id="modal" class="modal hidden"><div class="box" id="box"></div></div>
+
+<script>
+"use strict";
+
+const app=document.getElementById("app");
+const modal=document.getElementById("modal");
+const box=document.getElementById("box");
+const headerLogin=document.getElementById("headerLogin");
+let session=null;
+try{session=JSON.parse(localStorage.getItem("partiu_session")||"null")}catch{session=null}
+
+const money=v=>Number(v||0).toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
+const esc=v=>String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m]));
+const authHeaders=()=>({});
+
+async function api(url,options={}){
+  const opts={...options,headers:{...(options.headers||{}),...authHeaders()}};
+  let response;
+  try{response=await fetch(url,opts)}catch(e){throw new Error("Servidor não conectado. Execute o PARTIU com 'npm start' e abra pelo endereço do servidor.")}
+  let data={};try{data=await response.json()}catch{}
+  if(!response.ok)throw new Error(data.error||`Erro HTTP ${response.status}`);
+  return data;
+}
+
+function openModal(html){box.innerHTML=html;modal.classList.remove("hidden")}
+function closeModal(){modal.classList.add("hidden")}
+modal.addEventListener("click",e=>{if(e.target===modal)closeModal()});
+
+headerLogin.onclick=()=>session?dashboard():showLogin();
+
+function showLogin(){
+  app.innerHTML=`
+  <section class="login-screen">
+    <div class="login-box">
+      <div class="login-brand"><div class="logo">PARTI<b>U</b></div><p>ACESSO AO SISTEMA</p></div>
+      <label>Usuário ou e-mail</label>
+      <input id="loginUser" autocomplete="username" placeholder="Digite seu usuário">
+      <label>Senha</label>
+      <input id="loginPassword" type="password" autocomplete="current-password" placeholder="Digite sua senha">
+      <button class="cta" style="width:100%;margin-top:16px" id="loginButton">Entrar</button>
+      <p id="loginError" class="danger"></p>
+      <div class="quick-access">
+        <button onclick="document.getElementById('loginUser').value='adm';document.getElementById('loginPassword').value='1234';document.getElementById('loginButton').focus()">♛ Sou ADM<span>Acesso administrativo</span></button>
+        <button onclick="document.getElementById('loginUser').focus()">● Sou Organizador<span>Entre com seu acesso cadastrado</span></button>
+      </div>
+      <button class="btn" style="width:100%;margin-top:12px" onclick="home()">Voltar para eventos</button>
+    </div>
+  </section>`;
+  document.getElementById("loginButton").onclick=doLogin;
+  document.getElementById("loginPassword").addEventListener("keydown",e=>{if(e.key==="Enter")doLogin()});
+}
+
+async function doLogin(){
+  const user=document.getElementById("loginUser").value.trim();
+  const pass=document.getElementById("loginPassword").value;
+  const error=document.getElementById("loginError");
+  error.textContent="";
+  if(!user||!pass){error.textContent="Digite usuário e senha.";return}
+  try{
+    const result=await api("/api/login",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({username:user,password:pass})});
+    session=result;
+    localStorage.setItem("partiu_session",JSON.stringify(session));
+    headerLogin.textContent="Painel";
+    dashboard();
+  }catch(e){error.textContent=e.message}
+}
+
+async function logout(){
+  try{await fetch("/api/logout",{method:"POST"})}catch(_){}
+  session=null;
+  localStorage.removeItem("partiu_session");
+  headerLogin.textContent="Entrar";
+  home();
+}
+
+function dashboard(){
+  headerLogin.textContent="Sair";
+  if(!session)return showLogin();
+  if(session.role==="admin")return adminDashboard();
+  if(session.role==="organizer")return organizerDashboard();
+  logout();
+}
+
+async function home(){
+  headerLogin.textContent=session?"Painel":"Entrar";
+  let events=[];
+  try{events=await api("/api/events")}catch(e){
+    app.innerHTML=`<div class="wrap"><div class="panel"><h2>Servidor não conectado</h2><p class="danger">${esc(e.message)}</p><p class="muted">Não abra o arquivo HTML diretamente. Rode o servidor Node.js e acesse http://localhost:3000.</p></div></div>`;
+    return;
+  }
+  app.innerHTML=`
+  <div class="wrap">
+    <section class="hero">
+      <div><span class="tag">🎟️ VENDA DE INGRESSOS</span><h1>OS MELHORES<br>EVENTOS EM UM SÓ LUGAR</h1><p class="muted">Compre seu ingresso de forma rápida, segura e prática.</p><button class="cta" onclick="document.getElementById('events').scrollIntoView()">VER EVENTOS →</button></div>
+      <div class="art">PARTIU</div>
+    </section>
+    <section id="events"><div class="row"><h2>Eventos disponíveis</h2><div class="sp"></div><button class="btn" onclick="home()">Atualizar</button></div>
+      <div class="grid">${events.length?events.map(eventCard).join(""):'<div class="panel">Nenhum evento publicado ainda.</div>'}</div>
+    </section>
+  </div>`;
+}
+
+function eventCard(e){
+  const min=e.tickets.length?Math.min(...e.tickets.map(t=>t.price)):0;
+  const media=e.image?`<img src="${esc(e.image)}" alt="${esc(e.name)}">`:`<div class="event-placeholder">PARTIU</div>`;
+  return `<div class="card">
+    ${media}
+    <div style="margin-top:11px"><span class="tag">Ingressos disponíveis</span></div>
+    <h3>${esc(e.name)}</h3>
+    <div class="event-meta">📅 ${esc(e.date)} ${esc(e.time)}<br>📍 ${esc(e.location)}</div>
+    <p class="muted">${esc(e.description)}</p>
+    <div class="row"><b class="price">A partir de ${money(min)}</b><div class="sp"></div><button class="cta" onclick="eventDetails('${e.id}')">Ver evento →</button></div>
+  </div>`;
+}
+
+async function eventDetails(id){
+  const e=await api("/api/events/"+id);
+  openModal(`<h2>${esc(e.name)}</h2>
+    <img src="${esc(e.image||"")}" style="width:100%;max-height:250px;object-fit:cover;border-radius:10px">
+    <p class="muted">${esc(e.description)}</p>
+    <p>📅 ${esc(e.date)} ${esc(e.time)}<br>📍 ${esc(e.location)}</p>
+    <h3>Escolha os ingressos</h3>
+    ${e.tickets.map(t=>`<div class="panel row" style="margin:8px 0"><div class="sp"><b>${esc(t.name)}</b><br><span class="muted">${money(t.price)} • ${Math.max(0,t.stock-t.sold)} disponíveis</span></div><input class="qty" data-ticket="${t.id}" type="number" min="0" max="${Math.max(0,t.stock-t.sold)}" value="0" style="width:80px"></div>`).join("")}
+    <button class="cta" style="width:100%;margin-top:14px" id="goCheckout">Continuar</button>`);
+  document.getElementById("goCheckout").onclick=()=>checkout(e);
+}
+
+function checkout(e){
+  const quantities=[...document.querySelectorAll(".qty")].map(input=>({ticketId:input.dataset.ticket,quantity:Number(input.value)||0})).filter(x=>x.quantity>0);
+  if(!quantities.length)return alert("Escolha pelo menos um ingresso.");
+  openModal(`<h2>Dados do comprador</h2>
+    <p class="muted">Evento: ${esc(e.name)}</p>
+    <label>Nome completo</label><input id="buyerName">
+    <label>E-mail</label><input id="buyerEmail" type="email">
+    <label>Telefone</label><input id="buyerPhone">
+    <label>CPF (opcional)</label><input id="buyerCpf">
+    <button class="cta" style="width:100%;margin-top:15px" id="createOrder">Gerar PIX</button>`);
+  document.getElementById("createOrder").onclick=async()=>{
+    try{
+      const order=await api("/api/orders",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({
+        eventId:e.id,
+        customer:{name:document.getElementById("buyerName").value.trim(),email:document.getElementById("buyerEmail").value.trim(),phone:document.getElementById("buyerPhone").value.trim(),cpf:document.getElementById("buyerCpf").value.trim()},
+        tickets:quantities
+      })});
+      showOrder(order);
+    }catch(err){alert(err.message)}
+  };
+}
+
+function showOrder(o){
+  const qr=o.pixQr?`<img class="qr" src="data:image/png;base64,${o.pixQr}" alt="QR Code PIX">`:`<div class="panel">QR Code indisponível. Use o Pix Copia e Cola.</div>`;
+  openModal(`<div style="text-align:center">
+    <span class="tag">PEDIDO ${esc(o.id)}</span>
+    <h2>PIX gerado</h2>
+    <p class="muted">Pague pelo QR Code ou use o Pix Copia e Cola. A confirmação é automática pelo Mercado Pago.</p>
+    ${qr}<h2>${money(o.total)}</h2><div class="copy">${esc(o.pixCopyPaste)}</div>
+    <p class="muted">Pagamento: <b id="payStatus">Aguardando</b></p>
+    <button class="btn" onclick="navigator.clipboard.writeText(${JSON.stringify(o.pixCopyPaste)}).then(()=>alert('PIX copia e cola copiado!'))">📋 Copiar PIX</button>
+    <button class="btn" onclick="checkOrder('${o.id}')">Consultar pedido</button>
+    <div id="autoStatus" class="muted" style="margin-top:12px">Aguardando confirmação automática…</div>
+  </div>`);
+  acompanhar(o.id);
+}
+let pollTimer=null;
+function acompanhar(id){
+  if(pollTimer)clearInterval(pollTimer);
+  pollTimer=setInterval(async()=>{try{const o=await api('/api/orders/'+id);const status=document.getElementById('payStatus'),info=document.getElementById('autoStatus');if(status)status.textContent=o.status==='CONFIRMADO'?'CONFIRMADO':'PENDENTE';if(info)info.textContent=o.status==='CONFIRMADO'?'Pagamento confirmado! Seu ingresso já está liberado.':'Aguardando confirmação automática…';if(o.status==='CONFIRMADO'){clearInterval(pollTimer);pollTimer=null;showTicket(id)}}catch(_){ }},5000);
+}
+async function checkOrder(id){
+  const o=await api('/api/orders/'+id);
+  if(o.status==='CONFIRMADO')return showTicket(id);
+  openModal(`<h2>Pedido ${esc(o.id)}</h2><div class="panel"><b>Aguardando pagamento</b><p class="muted">Assim que o Mercado Pago confirmar o pagamento, o PARTIU libera o ingresso automaticamente.</p></div><button class="btn" style="margin-top:12px" onclick="showOrder(${JSON.stringify(o)})">Voltar ao PIX</button>`);
+}
+async function showTicket(id){
+  const t=await api('/api/tickets/'+id);
+  openModal(`<div style="text-align:center"><h2>🎟️ INGRESSO PARTIU</h2><h3>${esc(t.eventName)}</h3><p>${esc(t.customer.name)}</p><div class="panel"><b class="ok">Pagamento confirmado</b><br>Pedido: ${esc(t.orderId)}<br>Código: <b>${esc(t.ticketCode||'')}</b></div>${t.ticketQrCodeDataUrl?`<img class="qr" src="${t.ticketQrCodeDataUrl}" alt="QR de entrada">`:''}<p>${t.tickets.map(x=>`${esc(x.name)} × ${x.quantity}`).join('<br>')}</p></div>`);
+}
+
+// ADMIN
+function adminShell(title,body){
+  app.innerHTML=`<div class="wrap"><div class="row"><h1>${title}</h1><div class="sp"></div><button class="btn" onclick="logout()">Sair</button></div>
+  <div class="admin"><aside class="panel side">
+    <button class="btn" onclick="adminDashboard()">📊 Dashboard</button>
+    <button class="btn" onclick="adminEvents()">🎟️ Eventos</button>
+    <button class="btn" onclick="adminOrganizers()">👤 Organizadores</button>
+    <button class="btn" onclick="adminOrders()">🧾 Compradores / Pedidos</button>
+    <button class="btn" onclick="adminCreateEvent()">➕ Criar evento</button>
+  </aside><section class="panel">${body}</section></div></div>`;
+}
+
+async function adminDashboard(){
+  const d=await api("/api/admin/dashboard");
+  adminShell("Painel ADM",`<div class="row"><div><h1 class="dashboard-title">Dashboard</h1><div class="subline">Visão geral da plataforma PARTIU</div></div></div>
+  <div class="four" style="margin-top:16px">
+    <div class="card stat-card"><div class="stat-icon">▣</div><div class="stat">${d.events}<small>Total de eventos</small></div></div>
+    <div class="card stat-card"><div class="stat-icon">▤</div><div class="stat">${d.confirmed}<small>Ingressos vendidos</small></div></div>
+    <div class="card stat-card"><div class="stat-icon">$</div><div class="stat">${money(d.revenue)}<small>Faturamento bruto</small></div></div>
+    <div class="card stat-card"><div class="stat-icon">◷</div><div class="stat">${d.pending}<small>Pagamentos pendentes</small></div></div>
+  </div>
+  <div class="panel" style="margin-top:15px"><div class="row"><div><h2 style="margin:0">Ações rápidas</h2><p class="muted">${d.pending} pedido(s) aguardando confirmação e ${d.confirmed} confirmado(s).</p></div><div class="sp"></div><button class="cta" onclick="adminCreateEvent()">+ Criar anúncio / evento</button><button class="btn" onclick="adminOrders()">Ver compradores</button></div></div>`);
+}
+
+async function adminEvents(){
+  const events=await api("/api/admin/events");
+  adminShell("Eventos",`<button class="cta" onclick="adminCreateEvent()">➕ Criar evento/anúncio</button>
+  <div class="grid" style="margin-top:15px">${events.map(e=>`<div class="card"><img src="${esc(e.image||"")}" alt=""><h3>${esc(e.name)}</h3><p class="muted">${esc(e.date)} • ${esc(e.location)}</p><p>${e.tickets.map(t=>`${esc(t.name)}: ${money(t.price)} / estoque ${t.stock-t.sold}`).join("<br>")}</p><button class="btn" onclick="editEvent('${e.id}')">Editar</button></div>`).join("")}</div>`);
+}
+
+async function adminOrganizers(){
+  const organizers=await api("/api/admin/organizers");
+  adminShell("Organizadores",`<button class="cta" onclick="createOrganizer()">➕ Cadastrar Organizador</button>
+  <div class="table"><table><tr><th>Nome</th><th>Usuário</th><th>Evento vinculado</th></tr>${organizers.map(o=>`<tr><td>${esc(o.name)}</td><td>${esc(o.username)}</td><td>${esc(o.eventName)}</td></tr>`).join("")}</table></div>`);
+}
+
+async function createOrganizer(){
+  const events=await api("/api/admin/events");
+  if(!events.length)return alert("Crie um evento antes de cadastrar o Organizador.");
+  openModal(`<h2>Cadastrar Organizador</h2>
+    <label>Nome</label><input id="orgName">
+    <label>Usuário</label><input id="orgUser">
+    <label>Senha</label><input id="orgPass" type="password">
+    <label>Qual o evento?</label><select id="orgEvent">${events.map(e=>`<option value="${e.id}">${esc(e.name)}</option>`).join("")}</select>
+    <button class="cta" style="width:100%;margin-top:15px" id="saveOrganizer">Criar acesso</button>`);
+  document.getElementById("saveOrganizer").onclick=async()=>{
+    try{
+      await api("/api/organizers",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name:orgName.value.trim(),username:orgUser.value.trim(),password:orgPass.value,eventId:orgEvent.value})});
+      closeModal();adminOrganizers();alert("Organizador criado e vinculado ao evento.");
+    }catch(e){alert(e.message)}
+  };
+}
+
+async function adminOrders(){
+  const orders=await api("/api/admin/orders");
+  adminShell("Compradores e pedidos",`<div class="table"><table>
+  <tr><th>Pedido</th><th>Cliente</th><th>Evento</th><th>Total</th><th>Status</th><th>Ação</th></tr>
+  ${orders.map(o=>`<tr><td>${esc(o.id)}</td><td>${esc(o.customer.name)}<br><span class="muted">${esc(o.customer.email)}</span></td><td>${esc(o.eventName)}</td><td>${money(o.total)}</td><td>${esc(o.status)}</td><td>${o.status==="PENDENTE"?`<button class="btn" onclick="confirmPayment('${o.id}')">✓ Confirmar pagamento</button>`:""}</td></tr>`).join("")}
+  </table></div>`);
+}
+
+async function confirmPayment(id){
+  if(!confirm("Você confirma que recebeu o pagamento deste pedido?"))return;
+  try{await api("/api/admin/orders/"+id+"/confirm",{method:"POST"});adminOrders()}catch(e){alert(e.message)}
+}
+
+function adminCreateEvent(){showEventForm()}
+async function editEvent(id){showEventForm(await api("/api/events/"+id))}
+
+function ticketRow(t={}){
+  return `<div class="two ticket-row" style="margin-bottom:8px">
+    <input class="ticket-name" placeholder="Ex.: Pista" value="${esc(t.name||"")}" data-id="${esc(t.id||"")}">
+    <input class="ticket-price" type="number" step="0.01" placeholder="Preço" value="${t.price??""}">
+    <input class="ticket-stock" type="number" min="0" placeholder="Estoque" value="${t.stock??""}">
+  </div>`;
+}
+
+function showEventForm(event=null){
+  openModal(`<h2>${event?"Editar evento":"Criar evento/anúncio"}</h2>
+    <label>Nome do evento</label><input id="eventName" value="${esc(event?.name||"")}">
+    <label>Descrição</label><textarea id="eventDescription">${esc(event?.description||"")}</textarea>
+    <div class="two"><div><label>Data</label><input id="eventDate" type="date" value="${esc(event?.date||"")}"></div><div><label>Horário</label><input id="eventTime" type="time" value="${esc(event?.time||"")}"></div></div>
+    <label>Local</label><input id="eventLocation" value="${esc(event?.location||"")}" >
+    <label>📸 Foto do evento</label><input id="eventImage" type="file" accept="image/png,image/jpeg,image/webp">
+    <h3>Ingressos — preço + estoque</h3>
+    <div id="ticketRows">${event?.tickets?.length?event.tickets.map(ticketRow).join(""):ticketRow()}</div>
+    <button class="btn" id="addTicket">+ Adicionar tipo de ingresso</button>
+    <button class="cta" style="width:100%;margin-top:15px" id="saveEvent">${event?"Salvar alterações":"Publicar evento"}</button>`);
+  document.getElementById("addTicket").onclick=()=>document.getElementById("ticketRows").insertAdjacentHTML("beforeend",ticketRow());
+  document.getElementById("saveEvent").onclick=()=>saveEvent(event?.id);
+}
+
+async function saveEvent(id){
+  const form=new FormData();
+  form.append("name",document.getElementById("eventName").value.trim());
+  form.append("description",document.getElementById("eventDescription").value);
+  form.append("date",document.getElementById("eventDate").value);
+  form.append("time",document.getElementById("eventTime").value);
+  form.append("location",document.getElementById("eventLocation").value.trim());
+
+  const tickets=[...document.querySelectorAll(".ticket-row")].map(row=>({
+    id:row.querySelector(".ticket-name").dataset.id||undefined,
+    name:row.querySelector(".ticket-name").value.trim(),
+    price:Number(row.querySelector(".ticket-price").value)||0,
+    stock:Number(row.querySelector(".ticket-stock").value)||0
+  })).filter(t=>t.name);
+
+  form.append("ticketsJson",JSON.stringify(tickets));
+  const file=document.getElementById("eventImage").files[0];
+  if(file)form.append("image",file);
+
+  try{
+    await api(id?"/api/events/"+id:"/api/events",{method:id?"PUT":"POST",body:form});
+    closeModal();adminEvents();
+  }catch(e){alert(e.message)}
+}
+
+// ORGANIZADOR
+async function organizerDashboard(){
+  const d=await api("/api/organizer/report");
+  adminShellOrganizer(`Área do Organizador`,d);
+}
+
+function adminShellOrganizer(title,d){
+  const e=d.event;
+  app.innerHTML=`<div class="wrap"><div class="row"><h1>${title}</h1><div class="sp"></div><button class="btn" onclick="logout()">Sair</button></div>
+  <div class="panel"><b>Evento vinculado:</b> ${esc(e?.name||"Nenhum")}</div>
+  <div class="three" style="margin-top:15px"><div class="card"><div class="stat">${d.totals.orders}<small>Pedidos</small></div></div><div class="card"><div class="stat">${d.totals.confirmed}<small>Pagamentos confirmados</small></div></div><div class="card"><div class="stat">${money(d.totals.revenue)}<small>Vendas confirmadas</small></div></div></div>
+  <div class="panel" style="margin-top:15px"><h2>Relatório do seu evento</h2><div class="table"><table><tr><th>Pedido</th><th>Cliente</th><th>Total</th><th>Status</th></tr>${d.orders.map(o=>`<tr><td>${esc(o.id)}</td><td>${esc(o.customer.name)}</td><td>${money(o.total)}</td><td>${esc(o.status)}</td></tr>`).join("")}</table></div></div></div>`;
+}
+
+async function restoreSession(){
+  try{
+    const r=await fetch("/api/me");
+    if(r.ok){
+      session=await r.json();
+      localStorage.setItem("partiu_session",JSON.stringify(session));
+      headerLogin.textContent="Painel";
+    } else {
+      session=null;
+      localStorage.removeItem("partiu_session");
+    }
+  }catch(_){}
+  home();
+}
+restoreSession();
+</script>
+</body>
+</html>
