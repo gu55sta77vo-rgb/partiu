@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: partiu-ingressos
+    runtime: node
+    plan: starter
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: ADMIN_USERNAME
+        value: adm
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: PIX_KEY
+        value: "9fafde0b-268a-4eb7-91b5-3c175e069e0c"
+      - key: MP_ACCESS_TOKEN
+        sync: false
+      - key: MP_WEBHOOK_SECRET
+        sync: false
+      - key: PUBLIC_URL
+        sync: false
+      - key: DATA_DIR
+        value: /var/data
+    disk:
+      name: partiu-data
+      mountPath: /var/data
+      sizeGB: 1
